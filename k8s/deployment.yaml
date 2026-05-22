@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minikube-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minikube-demo
+  template:
+    metadata:
+      labels:
+        app: minikube-demo
+    spec:
+      containers:
+        - name: minikube-demo
+          image: YOUR_DOCKERHUB_USERNAME/minikube-demo:latest
+          ports:
+            - containerPort: 3000
